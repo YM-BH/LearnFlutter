@@ -17,6 +17,20 @@ export PATH=$PATH:$FLUTTER_HOME/bin/cache/dart-sdk/bin
 
 当配置完 `flutter` 的环境变量，在终端输入 `flutter` 命令，就会有响应了。
 
+4. flutter 项目会依赖一些东西，国内下载速度比较慢，在环境变量的配置文件中，需要配置一些国内的镜像
+
+```shell
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+```
+
+## 开发工具
+
+- VScode
+- Android Studio
+
+无论使用 `Android Studio` 还是 `VScode` 都需要安装 `Dart` 和 `Flutter` 的插件
+
 ## Flutter 的一些命令
 
 - 查看 `flutter` 的版本
@@ -43,5 +57,11 @@ flutter doctor
 [✓] IntelliJ IDEA Ultimate Edition (version 2020.1)
 [✓] VS Code (version 1.61.0)
 [✓] Connected device (1 available)
+```
+
+- 创建一个 flutter 项目
+
+```shell
+flutter create 项目名
 ```
 
