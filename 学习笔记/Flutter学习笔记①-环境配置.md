@@ -59,9 +59,19 @@ flutter doctor
 [✓] Connected device (1 available)
 ```
 
-- 创建一个 flutter 项目
+- 创建一个 `flutter` 项目
 
 ```shell
 flutter create 项目名
+```
+
+## 遇到的错误
+
+- 当执行 `flutter` 的命令时候，提示 无法打开 `Dart`，因为 `Apple` 无法检查其是否包含恶意软件
+
+解决方法：执行下面的命令，输入密码，再次重试 `flutter` 命令。
+
+```shell
+sudo spctl --master-disable
 ```
 
