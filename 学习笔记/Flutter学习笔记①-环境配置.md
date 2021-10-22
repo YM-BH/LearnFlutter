@@ -65,7 +65,7 @@ flutter doctor
 flutter create 项目名
 ```
 
-## 遇到的错误
+## 可能遇到的错误
 
 - 当执行 `flutter` 的命令时候，提示 无法打开 `Dart`，因为 `Apple` 无法检查其是否包含恶意软件
 
@@ -74,4 +74,6 @@ flutter create 项目名
 ```shell
 sudo spctl --master-disable
 ```
+
+
 
