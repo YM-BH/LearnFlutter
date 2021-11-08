@@ -112,3 +112,102 @@ main(List<String> args) {
 
 ### 函数
 
+- 函数的基本使用
+
+```dart
+main(List<String> args) {
+  print(sum(10, 20));
+}
+
+// 返回值类型可以省略（开发中不推荐）
+int sum(num1, num2) {
+  return num1 + num2;
+}
+```
+
+- 函数的参数（可选参数和必选参数）
+
+```dart
+main(List<String> args) {
+  // 必选参数，函数的参数必须传
+  sayHi("Kobe");
+
+  // 可选的位置参数 传入的参数必须与定义的位置一一对应
+  sayHello("LBJ", 20, 2.03);
+  sayHello("KD");
+
+  // 命名参数 传入的参数必须和命名一一对应
+  say("SC", age: 31, height: 1.95);
+  say("YaoMing");
+
+  // 可选的位置参数 和 可选的命名参数都可以设置默认值
+  // 只有可选参数 可以设置默认值
+  sayHello("Shaq");
+  say("Yi");
+}
+
+// 函数参数分为必选参数和可选参数
+void sayHi(name) {
+  print(name);
+}
+
+// 可选的位置参数 使用 []
+// 可以使用 ? 修饰类型，默认就是 null
+void sayHello(name, [int? age = 0, double height = 0.0]) {
+  print("name is $name, age is $age and height is $height");
+}
+
+// 命名参数 使用 {}
+// 可以使用 ? 修饰类型，默认就是 null
+// 也可以设置默认值 不使用 ?
+void say(name, {int age = 0, double? height = 0.0}) {
+  print("name is $name, age is $age and height is $height");
+}
+```
+
+- 函数是一等公民
+
+```dart
+main(List<String> args) {
+  // 函数可以作为 参数 传递给另外一个函数
+  // bar(foo);
+
+  // 如果参数为函数类型，可以使用匿名函数
+  // bar(() {
+  //   print("执行匿名函数");
+  // });
+
+  // 有参数和返回值的匿名函数
+  bar((num1, num2) {
+    return num1 + num2;
+  });
+
+  // 如果 函数体只有一行代码 可以使用 箭头函数
+  bar((num1, num2) => num1 * num2);
+}
+
+// 参数的类型为 Function 类型，参数接收一个函数
+// void bar(Function fn) {
+//   fn();
+// }
+
+// 定义一个函数
+// void foo() {
+//   print("foo 函数被调用");
+// }
+
+// 参数为 函数类型 该函数有参数和返回值
+// void bar(int fn(int num1, int num2)) {
+//   var result = fn(10, 20);
+//   print(result);
+// }
+
+// 如果 传入的函数的参数非常多 代码的可读性会很差 所以可以使用 typedef 关键字来优化
+typedef Calculate = int Function(int num1, int num2);
+
+void bar(Calculate cal) {
+  var result = cal(30, 20);
+  print(result);
+}
+```
+
