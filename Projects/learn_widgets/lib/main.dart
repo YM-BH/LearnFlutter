@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,51 +13,66 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("文本组件"),
+          title: const Text("按钮组件"),
         ),
-        body: richTextDemo()
+        body: Column(
+          children: [
+            elevatedButtonDemo(),
+            textButtonDemo(),
+            outlinedButtonDemo(),
+            iconButtonDemo(),
+            iconAndTextButtonDemo()
+          ],
+        )
       ),
     );
   }
 }
 
-/// 富文本
-Widget richTextDemo() {
-  return const Text.rich(
-    TextSpan(
-      children: [
-        TextSpan(
-          text: "遵守",
-          style: TextStyle(
-            color: Colors.black
-          )
-        ),
-        TextSpan(
-          text: "《用户协议》",
-          style: TextStyle(
-            color: Colors.blue
-          )
-        )
-      ]
-    )
+/// 漂浮按钮
+Widget elevatedButtonDemo() {
+  return ElevatedButton(onPressed: () {
+    print("ElevatedButton Pressed");
+  }, child:const Text(
+    "ElevatedButton"
+  ));
+}
+
+/// 文本按钮，默认背景透明不带阴影，按下后，会有背景色
+Widget textButtonDemo() {
+  return TextButton(onPressed: () {
+    print("TextButton Pressed");
+  }, child: const Text("TextButton"));
+}
+
+/// 带边框的按钮
+Widget outlinedButtonDemo() {
+  return OutlinedButton(onPressed: () {
+    print("OutlinedButton Pressed");
+  },
+      child: const Text("OutlinedButton")
   );
 }
 
-/// Text组件
-Widget textDemo() {
-  return const Text(
-    "这是一段文字，这是一段文字，这是一段文字，这是一段文字，这是一段文字，",
-    style: TextStyle(
-      color: Colors.orange,
-      fontSize: 20,
-      backgroundColor: Colors.green,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 4,
-    ),
-    maxLines: 1,
-    overflow: TextOverflow.ellipsis,
-    textAlign: TextAlign.center,
+/// 图标按钮
+Widget iconButtonDemo() {
+  return IconButton(
+    icon:const Icon(Icons.ios_share),
+    onPressed: () {
+      print("IconButton");
+    },
   );
 }
 
-
+/// 带图标的按钮
+Widget iconAndTextButtonDemo() {
+  return TextButton.icon(
+      onPressed: () {
+        print("TextButton.icon");
+      },
+      icon: const Icon(Icons.send),
+      label: const Text(
+        "带图标的按钮"
+      )
+  );
+}
