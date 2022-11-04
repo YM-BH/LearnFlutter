@@ -61,3 +61,4 @@ void main() {
 <img src="/Users/bh/Documents/GitHub/LearnFlutter/学习笔记/Flutter学习笔记③/image-20211118114730276.png" alt="image-20211118114730276" style="zoom:50%;" />
 
 总结来说，当我们仅仅修改了 `build` 方法中的代码，我们只需要执行 `hot reload` 即可，当我们修改的代码不是在 `build` 方法中，我们就可以使用 `hot restart` 了，完全不需要关闭程序，再运行了，运行效率提高了很多。
+
