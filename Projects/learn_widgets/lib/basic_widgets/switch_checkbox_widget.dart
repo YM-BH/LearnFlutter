@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("单选开关和复选框"),
-        ),
-        body: SwitchAndCheckbox()
+          appBar: AppBar(
+            title: const Text("单选开关和复选框"),
+          ),
+          body: SwitchAndCheckbox()
       ),
     );
   }
